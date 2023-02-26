@@ -37,7 +37,19 @@ var userSpecialCharactersChoice = confirm('Click OK to confirm including Special
     if (userSpecialCharactersChoice === true) {
       passwordConfirmation += userSpecialCharactersChoice
     }
+  // adding no value.
+    if (!userNumericChoice || !userUpperCaseChoice || !userLowerCaseChoice || !userSpecialCharactersChoice){
+      passwordConfirmation += ''
+    }
+    if (passwordConfirmation = 0){
+      alert("No password could be generated, please try again")
+      return;
+    }
 
+    // math.floor starting at the beginning of the variable and then randomise; then multiply by length?? gathers number for password
+    for (i = 0; i < length; i++){
+      passwordComplete += passwordConfirmation.charAt(Math.floor(math.random()* passwordConfirmation.length));
+    }
     
 
 // Write password to the #password input
