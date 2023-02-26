@@ -10,8 +10,35 @@ var passwordComplete = '';
 
 function writePassword(){
   var length = parseInt(prompt("How many characters would you like your password to contain?"))
-  if (length != 12)
-  noLength();
+  if (!length){
+    return; 
+      }
+    } if (length <= 8 || length >= 128) { 
+      alert("Unfortunately, you cannot have a password less than 8 characters, or more than 128 characters.")
+    }
+
+var userNumericChoice = confirm('Click OK to confirm including a Number in your Password');
+var userUpperCaseChoice = confirm('Click OK to confirm including Upper Case Letters in your Password');
+var userLowerCaseChoice = confirm('Click OK to confirm including Lower Case Letters in your Password');
+var userSpecialCharactersChoice = confirm('Click OK to confirm including Special Characters in your Password');
+
+
+    if (userNumericChoice === true) {
+      passwordConfirmation += numericCharacters
+    }
+
+    if (userUpperCaseChoice === true) {
+      passwordConfirmation += userUpperCaseChoice
+    }
+
+    if (userLowerCaseChoice === true) {
+      passwordConfirmation += userLowerCaseChoice
+    }
+    if (userSpecialCharactersChoice === true) {
+      passwordConfirmation += userSpecialCharactersChoice
+    }
+
+    
 
 // Write password to the #password input
 function writePassword() {
@@ -25,15 +52,13 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 
-function noLength(){
- window.alert("Unfortunately, you cannot have a password less than 8 characters, or more than 128 characters.")
-}
+
 
     //  this is the var to confirm if user wants lowercased/uppercased characters
     // var hasLowerCasedCharacters = confirm( 'Click OK to confirm including lowercase characters.');
     //  this is the var to confirm if user wants lowercased characters
     // var hasUpperCasedCharacters = confirm( 'Click OK to confirm including Uppercase characters.');
-}
+
 
 // to push a Numeric value after the customer has confirmed they want one if (userResponseToNumeric == true {
 //   password.push(numericCharacters);
