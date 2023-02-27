@@ -6,14 +6,18 @@ var upperCaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var lowerCaseLetters = 'abcdefghijklmnopqrstuvwxyz';
 var specialCharacters = '!#$%^&*(),-:;<>+=?}{][_|`~';
 var passwordConfirmation = '';
-var passwordComplete = '';
+
 
 function writePassword(){
+  var passwordText = document.querySelector("#password");
+  passwordText.textContent = '';
+  // declared complete password from passwordConfirmation iteration inside the function rather than the global variables
+  var passwordComplete = '';
   var length = prompt("How many characters would you like your password to contain?")
   if (!length){
       return;
   }  
-  if (length <= 8 || length >= 128) { 
+  if (length <= 7 || length >= 129) { 
       alert("Unfortunately, you cannot have a password less than 8 characters, or more than 128 characters.")
       return;
   }
@@ -44,7 +48,8 @@ function writePassword(){
     passwordConfirmation += ''
   }
   if (passwordConfirmation === 0){
-    alert("No password could be generated, please try again")
+    alert("No password could be generated, please try again");
+    writePassword();
   }
 
     // math.floor starting at the beginning of the variable and then randomise; then multiply by length?? gathers number for password
@@ -52,8 +57,7 @@ function writePassword(){
     passwordComplete += passwordConfirmation.charAt(Math.floor(Math.random() * passwordConfirmation.length));
   }
     
-  var passwordText = document.querySelector("#password");
-  passwordText.value = passwordComplete;
+  passwordText.textContent = passwordComplete;
 }   
 // understand what code below means?
 // Write password to the #password input
