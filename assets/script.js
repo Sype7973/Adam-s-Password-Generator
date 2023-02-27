@@ -1,6 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-
+// all variables for password criteria
 var numericCharacters = '0123456789';
 var upperCaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var lowerCaseLetters = 'abcdefghijklmnopqrstuvwxyz';
@@ -17,14 +17,14 @@ function writePassword(){
       alert("Unfortunately, you cannot have a password less than 8 characters, or more than 128 characters.")
       return;
   }
-
+// turns string into integer (number) for sake of calculations *might be redundant?*
   var passwordLength = parseInt(length);
-
+// confirmation to choose randomiser, works with cancel"
   var userNumericChoice = confirm('Click OK to confirm including a Number in your Password');
   var userUpperCaseChoice = confirm('Click OK to confirm including Upper Case Letters in your Password');
   var userLowerCaseChoice = confirm('Click OK to confirm including Lower Case Letters in your Password');
   var userSpecialCharactersChoice = confirm('Click OK to confirm including Special Characters in your Password');
-
+// if all confirmations are true
   if (userNumericChoice === true) {
     passwordConfirmation += numericCharacters
   }
@@ -50,13 +50,12 @@ function writePassword(){
     // math.floor starting at the beginning of the variable and then randomise; then multiply by length?? gathers number for password
   for (i = 0; i < passwordLength; i++){
     passwordComplete += passwordConfirmation.charAt(Math.floor(Math.random() * passwordConfirmation.length));
-    console.log(passwordComplete)
   }
     
   var passwordText = document.querySelector("#password");
   passwordText.value = passwordComplete;
 }   
-
+// understand what code below means?
 // Write password to the #password input
 // function writePassword() {
 // var password = generatePassword();
