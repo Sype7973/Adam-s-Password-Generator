@@ -10,7 +10,9 @@ var passwordConfirmation = '';
 
 function writePassword(){
   var passwordText = document.querySelector("#password");
+  // clears out previous password if function ran again
   passwordText.textContent = '';
+  passwordConfirmation = '';
   // declared complete password from passwordConfirmation iteration inside the function rather than the global variables
   var passwordComplete = '';
   var length = prompt("How many characters would you like your password to contain?")
@@ -43,16 +45,16 @@ function writePassword(){
   if (userSpecialCharactersChoice === true) {
     passwordConfirmation += specialCharacters
   }
-    // adding no value.
-  if (!userNumericChoice || !userUpperCaseChoice || !userLowerCaseChoice || !userSpecialCharactersChoice){
+    // adding no value or cancel in confirm box
+  if ((!userNumericChoice) && (!userUpperCaseChoice) && (!userLowerCaseChoice) && (!userSpecialCharactersChoice)){
     passwordConfirmation += ''
   }
-  if (passwordConfirmation === 0){
+  if (passwordConfirmation === 0 ){
     alert("No password could be generated, please try again");
     writePassword();
   }
 
-    // math.floor starting at the beginning of the variable and then randomise; then multiply by length?? gathers number for password
+    // math.floor starting at the beginning of the variable and then randomise; then multiply by confirmed password container length
   for (i = 0; i < passwordLength; i++){
     passwordComplete += passwordConfirmation.charAt(Math.floor(Math.random() * passwordConfirmation.length));
   }
@@ -60,6 +62,7 @@ function writePassword(){
   passwordText.textContent = passwordComplete;
 }   
 // understand what code below means?
+
 // Write password to the #password input
 // function writePassword() {
 // var password = generatePassword();
