@@ -25,7 +25,7 @@ function writePassword(){
   }
 // turns string into integer (number) for sake of calculations *might be redundant?*
   var passwordLength = parseInt(length);
-// confirmation to choose randomiser, works with cancel"
+// confirmation to choose criteria
   var userNumericChoice = confirm('Click OK to confirm including a Number in your Password');
   var userUpperCaseChoice = confirm('Click OK to confirm including Upper Case Letters in your Password');
   var userLowerCaseChoice = confirm('Click OK to confirm including Lower Case Letters in your Password');
