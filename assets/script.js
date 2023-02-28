@@ -22,7 +22,12 @@ function writePassword(){
   if (length <= 7 || length >= 129) { 
       alert("Unfortunately, you cannot have a password less than 8 characters, or more than 128 characters.")
       return;
+  }    
+  if (isNaN(length)){
+    alert("Please choose a numeric value.")
+    return;
   }
+  
 // turns string into integer (number) for sake of calculations *might be redundant?*
   var passwordLength = parseInt(length);
 // confirmation to choose criteria
