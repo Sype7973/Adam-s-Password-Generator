@@ -23,6 +23,7 @@ function writePassword(){
       alert("Unfortunately, you cannot have a password less than 8 characters, or more than 128 characters.")
       return;
   }    
+  // Checks to see if user has entered a string value
   if (isNaN(length)){
     alert("Please choose a numeric value.")
     return;
